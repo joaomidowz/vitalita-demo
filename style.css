@@ -84,6 +84,7 @@ button {
   min-height: var(--header-height);
   margin: 0 auto;
   padding: 8px 10px 8px 9px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -143,6 +144,20 @@ button {
   width: 46px;
   height: 46px;
   font-size: 1.1rem;
+}
+
+.mobile-nav-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--purple-dark);
+  font-family: var(--title-font);
+  font-size: 1.62rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .desktop-nav,
@@ -919,6 +934,10 @@ h3 {
   .desktop-nav,
   .site-header .header-cta {
     display: inline-flex;
+  }
+
+  .mobile-nav-title {
+    display: none;
   }
 
   .site-header {
