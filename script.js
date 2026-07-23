@@ -1,5 +1,5 @@
 /**
- * Vitalità Saúde e Bem-Estar — GSAP Motion Engine & Controller (Subtle Fades)
+ * Vitalità Saúde e Bem-Estar — GSAP Motion Engine & Controller (Subtle Fades & Preloader)
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.toggle("menu-open", !isOpen);
     });
 
-    // Close menu when clicking a link
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         menuToggle.setAttribute("aria-expanded", "false");
@@ -51,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Close menu when clicking outside
     document.addEventListener("click", (e) => {
       if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
         menuToggle.setAttribute("aria-expanded", "false");
@@ -76,12 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let heroTl;
 
   if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined" && !prefersReducedMotion) {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero Entrance Animation (Subtle & Fast)
-    const heroTl = gsap.timeline({ defaults: { ease: "power2.out", duration: 0.5 } });
+    // Hero Entrance Animation (Paused until preloader finishes)
+    heroTl = gsap.timeline({ paused: true, defaults: { ease: "power2.out", duration: 0.5 } });
     heroTl
       .from(".hero-eyebrow-badge", { y: -10, opacity: 0, delay: 0.05 })
       .from(".hero-copy h1", { y: 15, opacity: 0 }, "-=0.3")
@@ -142,7 +141,31 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach((el) => observer.observe(el));
   }
 
-  // 5. Interactive Goal Quiz Selector
+  // 5. Preloader Dismissal Handler
+  const preloader = document.getElementById("sitePreloader");
+  if (preloader) {
+    let preloaderDismissed = false;
+    const dismissPreloader = () => {
+      if (preloaderDismissed) return;
+      preloaderDismissed = true;
+      
+      preloader.classList.add("is-hidden");
+      if (heroTl) {
+        setTimeout(() => heroTl.play(), 200);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      setTimeout(dismissPreloader, 600);
+    } else {
+      window.addEventListener("load", () => setTimeout(dismissPreloader, 600));
+      setTimeout(dismissPreloader, 1600); // Safety fallback
+    }
+  } else if (heroTl) {
+    heroTl.play();
+  }
+
+  // 6. Interactive Goal Quiz Selector
   const goalData = {
     dores: {
       title: "Programa de Alívio de Dores & Reabilitação",
@@ -196,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 6. Video Modal Controls
+  // 7. Video Modal Controls
   const videoModal = document.getElementById("videoModal");
   const openVideoBtn = document.getElementById("openVideoBtn");
   const closeVideoBtn = document.getElementById("closeVideoBtn");
@@ -225,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 7. Auto Update Year
+  // 8. Auto Update Year
   const yearEl = document.getElementById("year");
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear().toString();
