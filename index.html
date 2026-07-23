@@ -2,301 +2,668 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vitalità Pilates | Saúde e Bem Estar em Cascavel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Vitalità Pilates | Saúde e Bem-Estar em Cascavel - PR</title>
     <meta
       name="description"
-      content="Aulas de pilates em Cascavel para postura, mobilidade, fortalecimento e bem-estar. Fale com a Vitalità pelo WhatsApp."
+      content="Estúdio de Pilates em Cascavel-PR. Aulas personalizadas com até 8 alunos por horário, espaço climatizado, aparelhos modernos e foco no alívio de dores, postura e bem-estar. Agende no WhatsApp."
     />
-    <meta property="og:title" content="Vitalità Pilates | Saúde e Bem Estar em Cascavel" />
+    <meta property="og:title" content="Vitalità Pilates | Saúde e Bem-Estar em Cascavel - PR" />
     <meta
       property="og:description"
-      content="Aulas de pilates em Cascavel para postura, mobilidade, fortalecimento e bem-estar. Fale com a Vitalità pelo WhatsApp."
+      content="Aulas personalizadas de pilates em Cascavel para postura, mobilidade, fortalecimento e bem-estar. Agende sua aula experimental pelo WhatsApp."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/logo-circle.png" />
     <link rel="icon" type="image/png" href="images/logo-circle.png" />
     <link rel="apple-touch-icon" href="images/logo-circle.png" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP & ScrollTrigger Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <header class="site-header" id="siteHeader">
-      <div class="header-inner">
-        <!-- IMAGEM 1: logo principal do site. -->
-        <a class="brand" href="#inicio" aria-label="Vitalità Saúde e Bem Estar">
-          <span class="brand-mark" aria-hidden="true">
-            <img class="brand-logo" src="images/logo-circle.png" alt="" />
-          </span>
-        </a>
-
-        <span class="mobile-nav-title" aria-hidden="true">Vitalità</span>
-
-        <nav class="desktop-nav" aria-label="Navegação principal">
-          <a href="#inicio">Início</a>
-          <a href="#beneficios">Benefícios</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#modalidades">Modalidades</a>
-          <a href="#localizacao">Localização</a>
-        </nav>
-
-        <button class="btn btn-small btn-primary header-cta" type="button" data-whatsapp>
-          Agendar pelo WhatsApp
-        </button>
-
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Abrir menu"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+    <!-- Top Announcement Bar -->
+    <aside class="top-announcement" aria-label="Aviso de turmas">
+      <div class="container announcement-inner">
+        <span class="announcement-badge">VAGAS LIMITADAS</span>
+        <p>Atendimento personalizado com até 8 alunos por horário. <strong>Agende sua aula experimental!</strong></p>
+        <button type="button" class="announcement-link" data-whatsapp data-msg="Olá! Gostaria de consultar horários disponíveis para aula experimental na Vitalità.">
+          Consultar Horários →
         </button>
       </div>
+    </aside>
 
+    <!-- Header Navigation -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner container">
+        <a class="brand" href="#inicio" aria-label="Vitalità Saúde e Bem Estar">
+          <span class="brand-mark" aria-hidden="true">
+            <img class="brand-logo" src="images/logo-circle.png" alt="Vitalità Pilates Logo" />
+          </span>
+          <div class="brand-text">
+            <span class="brand-title">Vitalità</span>
+            <span class="brand-sub">Saúde & Bem-Estar</span>
+          </div>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a href="#inicio" class="nav-link active">Início</a>
+          <a href="#sobre" class="nav-link">O Estúdio</a>
+          <a href="#beneficios" class="nav-link">Benefícios</a>
+          <a href="#objetivos" class="nav-link">Seu Objetivo</a>
+          <a href="#modalidades" class="nav-link">Modalidades</a>
+          <a href="#depoimentos" class="nav-link">Avaliações</a>
+          <a href="#localizacao" class="nav-link">Localização</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn btn-small btn-primary header-cta" type="button" data-whatsapp data-msg="Olá! Vim pelo site da Vitalità e gostaria de agendar uma aula de Pilates.">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
+            </svg>
+            <span>Agendar pelo WhatsApp</span>
+          </button>
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Abrir menu de navegação"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
       <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile" hidden>
         <a href="#inicio">Início</a>
+        <a href="#sobre">O Estúdio</a>
         <a href="#beneficios">Benefícios</a>
-        <a href="#sobre">Sobre</a>
+        <a href="#objetivos">Escolher Objetivo</a>
         <a href="#modalidades">Modalidades</a>
+        <a href="#depoimentos">Avaliações Google</a>
         <a href="#localizacao">Localização</a>
+        <div class="mobile-cta-wrap">
+          <button class="btn btn-primary btn-full" type="button" data-whatsapp data-msg="Olá! Vim pelo site da Vitalità e gostaria de agendar uma aula de Pilates.">
+            Falar pelo WhatsApp
+          </button>
+        </div>
         <div class="mobile-social">
-          <a href="#" data-link="instagram" rel="noopener">Instagram</a>
-          <a href="#" data-link="facebook" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram Vitalità">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://maps.google.com/?q=Vitalit%C3%A0+Sa%C3%BAde+e+Bem+Estar+Rua+Pio+XII+944+Neva+Cascavel+PR" target="_blank" rel="noopener" aria-label="Google Maps Vitalità">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+            </svg>
+            <span>Google Maps</span>
+          </a>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="hero" id="inicio">
+      <!-- Hero Section (Calmara Inspired with Original Studio Photo foto-2.png) -->
+      <section class="hero gsap-section" id="inicio">
+        <div class="hero-bg-glow" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">Pilates em Cascavel-PR</p>
-            <h1>Pilates para evoluir com saúde, leveza e bem-estar</h1>
-            <p class="hero-text">
-              Aulas de pilates em Cascavel para quem busca movimento, fortalecimento,
-              postura e mais qualidade de vida.
-            </p>
-            <div class="cta-row">
-              <button class="btn btn-primary" type="button" data-whatsapp>
-                Agendar aula pelo WhatsApp
-              </button>
-              <a class="btn btn-secondary" href="#localizacao">Ver localização</a>
+            <div class="hero-eyebrow-badge">
+              <span>ESTÚDIO DE PILATES EM CASCAVEL - PR</span>
             </div>
-            <div class="hero-tags" aria-label="Destaques do estúdio">
-              <span>Movimento</span>
-              <span>Postura</span>
-              <span>Cuidado</span>
+
+            <h1>Pilates para evoluir com saúde, leveza e força no seu corpo</h1>
+            
+            <p class="hero-text">
+              Desfrute de aulas personalizadas em um espaço climatizado, com equipamentos modernos e uma equipe comprometida com o seu bem-estar.
+            </p>
+
+            <div class="hero-highlights-pills">
+              <span class="pill-tag">Até 8 alunos por horário</span>
+              <span class="pill-tag">Espaço Climatizado</span>
+              <span class="pill-tag">Avaliação Personalizada</span>
+            </div>
+
+            <div class="cta-row">
+              <button class="btn btn-primary btn-large" type="button" data-whatsapp data-msg="Olá! Gostaria de agendar uma aula experimental de Pilates na Vitalità.">
+                <span>Agendar Aula Experimental</span>
+                <span class="btn-arrow">→</span>
+              </button>
+              
+              <a class="btn btn-secondary" href="#sobre">
+                <span>Conhecer o Estúdio</span>
+              </a>
+            </div>
+
+            <div class="hero-proof-compact">
+              <div class="rating-stars" aria-label="Avaliação 5 estrelas">★★★★★</div>
+              <span class="rating-text"><strong>5.0 / 5.0</strong> no Google (12+ avaliações reais)</span>
             </div>
           </div>
 
-          <!-- IMAGEM 2: foto principal do espaço no topo da página. -->
-          <div class="hero-visual">
-            <img
-              class="hero-photo"
-              src="images/foto-2.png"
-              alt="Espaço da Vitalità Pilates com aparelhos e acessórios"
-            />
+          <!-- Hero Media Portal (Featuring Original Photo foto-2.png) -->
+          <div class="hero-visual reveal">
+            <div class="media-portal-wrap">
+              <img
+                class="hero-photo"
+                src="images/foto-2.png"
+                alt="Espaço iluminado do estúdio Vitalità Pilates com aparelhos em Cascavel"
+              />
+              <div class="media-overlay"></div>
+              
+              <button type="button" class="video-play-badge" id="openVideoBtn" aria-label="Assistir apresentação do estúdio">
+                <span class="play-icon-circle">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="currentColor" d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+                <span class="play-text">Ver o Estúdio</span>
+              </button>
+
+              <div class="hero-floating-card">
+                <div class="floating-avatar">
+                  <img src="images/logo-circle.png" alt="Vitalità" />
+                </div>
+                <div class="floating-info">
+                  <strong>Atendimento Humanizado</strong>
+                  <span>Cascavel - Bairro Neva</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics Bar (Bottom of Hero) -->
+        <div class="hero-metrics-bar">
+          <div class="container metrics-grid">
+            <div class="metric-item">
+              <div class="metric-val">5.0 ★</div>
+              <div class="metric-label">Nota máxima no Google</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-val">Até 8</div>
+              <div class="metric-label">Alunos por turma</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-val">100%</div>
+              <div class="metric-label">Climatizado e Equipado</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-val">3+ Anos</div>
+              <div class="metric-label">Alunos com resultados contínuos</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section-soft" id="beneficios">
+      <!-- About / Studio Section (Focus Pilates Inspired with Original Studio Photo foto-1.png) -->
+      <section class="section section-about gsap-section" id="sobre">
+        <div class="container split-grid">
+          <div class="space-visual reveal">
+            <div class="arch-frame">
+              <img
+                class="space-photo"
+                src="images/foto-1.png"
+                alt="Aparelhos de Pilates com estrutura de madeira no estúdio Vitalità"
+              />
+              <div class="arch-lighting-glow"></div>
+            </div>
+            <div class="experience-badge">
+              <span class="badge-number">Vitalità</span>
+              <span class="badge-txt">Cuidado & Respeito ao seu ritmo</span>
+            </div>
+          </div>
+
+          <div class="section-copy reveal">
+            <p class="eyebrow">A Nossa Filosofia</p>
+            <h2>Nós ajudamos você a se sentir forte, consciente e leve no seu próprio corpo</h2>
+            <p class="lead-paragraph">
+              A antiga <em>Pilates Danielle Caetano</em> evoluiu para se tornar a <strong>Vitalità Pilates</strong>: um refúgio acolhedor em Cascavel pensado para proporcionar saúde integral, fortalecimento muscular e alívio das tensões diárias.
+            </p>
+            <p>
+              Entendemos que cada pessoa possui um histórico e objetivos únicos. Por isso, nossas aulas são cuidadosamente planejadas com acompanhamento próximo dos professores, garantindo postura correta, segurança e evolução gradual.
+            </p>
+
+            <div class="features-checklist">
+              <div class="check-item">
+                <span class="check-icon">
+                  <svg viewBox="0 0 24 24" width="14" height="14">
+                    <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Espaço Climatizado e Aconchegante</strong>
+                  <p>Ambiente arejado, calmo e preparado para o seu momento de bem-estar.</p>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <span class="check-icon">
+                  <svg viewBox="0 0 24 24" width="14" height="14">
+                    <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Equipamentos Modernos e Completos</strong>
+                  <p>Reformer, Cadillac, Step Chair e Ladder Barrel higienizados e de alta precisão.</p>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <span class="check-icon">
+                  <svg viewBox="0 0 24 24" width="14" height="14">
+                    <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Turmas Reduzidas (Até 8 Alunos)</strong>
+                  <p>Professor sempre atento aos seus movimentos e ajustes necessários.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-cta-wrap">
+              <button class="btn btn-primary" type="button" data-whatsapp data-msg="Olá! Li sobre o estúdio Vitalità e gostaria de conhecer as turmas.">
+                Conhecer Horários no WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="section section-soft gsap-section" id="beneficios">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="eyebrow">Benefícios</p>
-            <h2>Por que fazer pilates na Vitalità?</h2>
+            <p class="eyebrow">Benefícios Reais</p>
+            <h2>Por que fazer Pilates na Vitalità?</h2>
             <p>
-              Um cuidado contínuo para corpo, postura e rotina, com aulas pensadas
-              para evoluir de forma segura.
+              Exercícios direcionados para transformar a sua relação com a postura, a dor e a energia do dia a dia.
             </p>
           </div>
 
           <div class="benefit-grid">
             <article class="benefit-card reveal">
-              <span class="icon-line" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M7 13c2-3 4-4 7-4 2 0 4 1 5 3" />
-                  <path d="M5 18c3-3 6-4 10-3" />
+              <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" class="benefit-svg">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
                 </svg>
-              </span>
-              <h3>Alívio de dores</h3>
-              <p>Movimentos orientados para reduzir desconfortos.</p>
+              </div>
+              <h3>Alívio Prático de Dores</h3>
+              <p>Redução significativa de dores lombares, cervicais e tensões causadas pelo trabalho e rotina.</p>
             </article>
 
             <article class="benefit-card reveal">
-              <span class="icon-line" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4v16" />
-                  <path d="M8 8h8" />
-                  <path d="M9 16h6" />
+              <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" class="benefit-svg">
+                  <path d="M12 4v16"/>
+                  <path d="M8 8h8"/>
+                  <path d="M9 16h6"/>
                 </svg>
-              </span>
-              <h3>Melhora da postura</h3>
-              <p>Consciência corporal para se movimentar melhor.</p>
+              </div>
+              <h3>Alinhamento e Postura</h3>
+              <p>Fortalecimento do Powerhouse (Core) para manter a coluna ereta de forma natural e sem esforço excessivo.</p>
             </article>
 
             <article class="benefit-card reveal">
-              <span class="icon-line" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M5 15c4 0 4-6 8-6s4 6 8 6" />
-                  <path d="M5 19h14" />
+              <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" class="benefit-svg">
+                  <path d="M5 15c4 0 4-6 8-6s4 6 8 6"/>
+                  <path d="M5 19h14"/>
                 </svg>
-              </span>
-              <h3>Mais mobilidade</h3>
-              <p>Flexibilidade e amplitude para o dia a dia.</p>
+              </div>
+              <h3>Flexibilidade & Mobilidade</h3>
+              <p>Ganho de amplitude articular e facilidade para realizar movimentos simples e avançados no dia a dia.</p>
             </article>
 
             <article class="benefit-card reveal">
-              <span class="icon-line" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M6 13h12" />
-                  <path d="M8 10v6" />
-                  <path d="M16 10v6" />
+              <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" class="benefit-svg">
+                  <path d="M6 13h12"/>
+                  <path d="M8 10v6"/>
+                  <path d="M16 10v6"/>
                 </svg>
-              </span>
-              <h3>Fortalecimento muscular</h3>
-              <p>Força com controle, segurança e progressão.</p>
+              </div>
+              <h3>Fortalecimento Seguro</h3>
+              <p>Músculos mais firmes e tonificados sem impacto nas articulações, ideal para todas as idades.</p>
             </article>
 
             <article class="benefit-card reveal">
-              <span class="icon-line" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 20s7-4 7-10a4 4 0 0 0-7-2 4 4 0 0 0-7 2c0 6 7 10 7 10z" />
+              <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" class="benefit-svg">
+                  <path d="M12 20s7-4 7-10a4 4 0 0 0-7-2 4 4 0 0 0-7 2c0 6 7 10 7 10z"/>
                 </svg>
-              </span>
-              <h3>Bem-estar no dia a dia</h3>
-              <p>Mais leveza, disposição e qualidade de vida.</p>
+              </div>
+              <h3>Consciência Corporal & Respiração</h3>
+              <p>Redução do estresse e melhora da capacidade respiratória por meio do movimento consciente.</p>
             </article>
 
             <article class="benefit-card reveal">
-              <span class="icon-line" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4 5 7v5c0 4 3 7 7 8 4-1 7-4 7-8V7l-7-3z" />
-                  <path d="M9 12l2 2 4-4" />
+              <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" class="benefit-svg">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
-              </span>
-              <h3>Atendimento com cuidado</h3>
-              <p>Acompanhamento próximo e respeitoso.</p>
+              </div>
+              <h3>Professores Atenciosos</h3>
+              <p>Orientação individual em cada exercício para garantir a execução perfeita e livre de lesões.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="sobre">
-        <div class="container split-grid">
-          <div class="section-copy reveal">
-            <p class="eyebrow">Sobre</p>
-            <h2>A Vitalità nasceu da evolução do cuidado</h2>
-            <p>
-              A antiga Pilates Danielle Caetano evoluiu e agora é Vitalità Pilates:
-              um espaço dedicado ao movimento, à saúde e ao bem-estar. Aqui, cada aula
-              é pensada para respeitar o ritmo, os objetivos e as necessidades de cada pessoa.
-            </p>
-            <div class="care-list">
-              <span>Atendimento humanizado</span>
-              <span>Acompanhamento profissional</span>
-              <span>Exercícios adaptados para cada objetivo</span>
+      <!-- Interactive Goal Selector / Calculator (CRO Tool) -->
+      <section class="section section-interactive gsap-section" id="objetivos">
+        <div class="container">
+          <div class="quiz-card reveal">
+            <div class="quiz-header">
+              <span class="eyebrow-accent">SEU PROGRAMA IDEAL</span>
+              <h2>Qual é a sua principal necessidade hoje?</h2>
+              <p>Selecione seu objetivo e veja a recomendação sob medida preparada pela equipe Vitalità:</p>
+            </div>
+
+            <div class="quiz-options-grid" id="quizOptions">
+              <button type="button" class="quiz-opt-btn active" data-goal="dores">
+                <span class="opt-num-badge">01</span>
+                <div class="opt-text-wrap">
+                  <span class="opt-title">Alívio de Dores</span>
+                  <span class="opt-desc">Dores nas costas, lombar, pescoço ou articulações</span>
+                </div>
+              </button>
+
+              <button type="button" class="quiz-opt-btn" data-goal="postura">
+                <span class="opt-num-badge">02</span>
+                <div class="opt-text-wrap">
+                  <span class="opt-title">Melhorar Postura</span>
+                  <span class="opt-desc">Consciência corporal e alinhamento da coluna</span>
+                </div>
+              </button>
+
+              <button type="button" class="quiz-opt-btn" data-goal="fortalecimento">
+                <span class="opt-num-badge">03</span>
+                <div class="opt-text-wrap">
+                  <span class="opt-title">Fortalecer o Corpo</span>
+                  <span class="opt-desc">Tonificar músculos com segurança e sem impacto</span>
+                </div>
+              </button>
+
+              <button type="button" class="quiz-opt-btn" data-goal="gestacao">
+                <span class="opt-num-badge">04</span>
+                <div class="opt-text-wrap">
+                  <span class="opt-title">Gestação & Pós-Parto</span>
+                  <span class="opt-desc">Exercícios seguros para cada trimestre da gestação</span>
+                </div>
+              </button>
+
+              <button type="button" class="quiz-opt-btn" data-goal="melhoridade">
+                <span class="opt-num-badge">05</span>
+                <div class="opt-text-wrap">
+                  <span class="opt-title">Terceira Idade & Mobilidade</span>
+                  <span class="opt-desc">Manter autonomia, equilíbrio e vitalidade diária</span>
+                </div>
+              </button>
+            </div>
+
+            <!-- Quiz Result Output Container -->
+            <div class="quiz-result-box" id="quizResultBox">
+              <div class="result-content">
+                <span class="result-badge">Recomendação Vitalità</span>
+                <h3 id="resultTitle">Programa de Alívio de Dores & Reabilitação</h3>
+                <p id="resultDesc">
+                  Trabalho com foco na descompressão articular, alongamento das cadeias musculares encurtadas e fortalecimento estabilizador do core.
+                </p>
+                <div class="result-cta-row">
+                  <button class="btn btn-primary" type="button" id="quizCtaBtn" data-whatsapp data-msg="Olá! Fiz o teste no site e meu objetivo é: Alívio de Dores. Gostaria de agendar uma aula experimental.">
+                    Agendar Aula para este Objetivo →
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- IMAGEM 3: foto complementar do espaço da Vitalità. -->
-          <div class="space-visual reveal">
-            <img
-              class="space-photo"
-              src="images/foto-1.png"
-              alt="Aparelhos e acessórios de pilates no espaço da Vitalità"
-            />
-          </div>
         </div>
       </section>
 
-      <section class="section section-lavender" id="para-quem">
+      <!-- Modalidades Showcase (Featuring Original Photos) -->
+      <section class="section gsap-section" id="modalidades">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="eyebrow">Para quem é</p>
-            <h2>Pilates para diferentes fases e objetivos</h2>
+            <p class="eyebrow">Aulas & Equipamentos</p>
+            <h2>Modalidades no Estúdio Vitalità</h2>
             <p>
-              Uma prática indicada para quem quer cuidar do corpo com atenção,
-              constância e segurança.
-            </p>
-          </div>
-
-          <div class="audience-grid">
-            <article class="audience-item reveal">Pessoas com dores ou desconfortos</article>
-            <article class="audience-item reveal">Quem deseja melhorar postura</article>
-            <article class="audience-item reveal">Quem busca mais flexibilidade e mobilidade</article>
-            <article class="audience-item reveal">Quem quer fortalecer o corpo com segurança</article>
-            <article class="audience-item reveal">Adultos, idosos e iniciantes</article>
-            <article class="audience-item reveal">Quem busca qualidade de vida</article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="modalidades">
-        <div class="container">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Modalidades</p>
-            <h2>Modalidades e acompanhamento</h2>
-            <p>
-              A melhor escolha depende dos seus objetivos, histórico e momento atual.
+              Práticas estruturadas para atender aos seus objetivos com eficiência e acompanhamento constante.
             </p>
           </div>
 
           <div class="modality-grid">
             <article class="modality-card reveal">
-              <h3>Pilates com aparelhos</h3>
-              <p>Aulas com equipamentos que ajudam no controle, alinhamento e evolução.</p>
+              <div class="modality-img-wrap">
+                <img src="images/foto-1.png" alt="Aparelhos de Pilates com estrutura de madeira na Vitalità" />
+              </div>
+              <div class="modality-body">
+                <h3>Pilates com Aparelhos Tradicionais</h3>
+                <p>Uso de Reformer, Cadillac, Step Chair e Ladder Barrel para fornecer resistência progressiva e assistência ao movimento.</p>
+                <ul class="modality-features">
+                  <li>Até 8 alunos por sala</li>
+                  <li>Uso de molas e tiras ajustáveis</li>
+                  <li>Exercícios de baixa sobrecarga articular</li>
+                </ul>
+              </div>
             </article>
+
             <article class="modality-card reveal">
-              <h3>Aulas personalizadas</h3>
-              <p>Prática adaptada às necessidades e metas de cada pessoa.</p>
+              <div class="modality-img-wrap">
+                <img src="images/foto-2.png" alt="Detalhe dos equipamentos e espaço do estúdio Vitalità" />
+              </div>
+              <div class="modality-body">
+                <h3>Pilates de Postura e Mobilidade</h3>
+                <p>Focado em quem passa muitas horas sentado ou em pé. Restaura a amplitude de movimento natural das articulações.</p>
+                <ul class="modality-features">
+                  <li>Alongamento das cadeias posteriores</li>
+                  <li>Descompressão da coluna vertebral</li>
+                  <li>Trabalho respiratório sincronizado</li>
+                </ul>
+              </div>
             </article>
+
             <article class="modality-card reveal">
-              <h3>Postura e mobilidade</h3>
-              <p>Exercícios para melhorar consciência corporal e amplitude de movimento.</p>
-            </article>
-            <article class="modality-card reveal">
-              <h3>Fortalecimento seguro</h3>
-              <p>Trabalho de força com técnica, cuidado e progressão responsável.</p>
+              <div class="modality-img-wrap">
+                <img src="images/vitalita-studio-main.jpg" alt="Acompanhamento individual no estúdio Vitalità" />
+              </div>
+              <div class="modality-body">
+                <h3>Acompanhamento Personalizado</h3>
+                <p>Adaptação individual de cada série para gestantes, idosos ou pessoas em processo de recuperação física.</p>
+                <ul class="modality-features">
+                  <li>Avaliação inicial do aluno</li>
+                  <li>Respeito ao limite individual</li>
+                  <li>Evolução de carga responsável</li>
+                </ul>
+              </div>
             </article>
           </div>
 
-          <div class="inline-cta reveal">
-            <p>Converse pelo WhatsApp e veja a melhor opção para você.</p>
-            <button class="btn btn-primary" type="button" data-whatsapp>
+          <div class="inline-cta-banner reveal">
+            <div class="inline-cta-text">
+              <h3>Dúvidas sobre qual modalidade escolher?</h3>
+              <p>Fale diretamente com nossa equipe no WhatsApp. Nós ajudamos você a encontrar o melhor horário.</p>
+            </div>
+            <button class="btn btn-primary" type="button" data-whatsapp data-msg="Olá! Gostaria de uma ajuda para escolher o melhor horário de Pilates na Vitalità.">
               Chamar no WhatsApp
             </button>
           </div>
         </div>
       </section>
 
-      <section class="section section-soft" id="localizacao">
+      <!-- Google Reviews & Social Proof Section -->
+      <section class="section section-reviews gsap-section" id="depoimentos">
+        <div class="container">
+          <div class="reviews-header reveal">
+            <div class="google-rating-box">
+              <svg class="google-g-icon" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <div class="google-score">
+                <span class="score-num">5.0</span>
+                <span class="score-stars">★★★★★</span>
+                <span class="score-count">12 avaliações no Google</span>
+              </div>
+            </div>
+            <h2>O que os nossos alunos dizem no Google</h2>
+            <p>Depoimentos reais de quem treina e cuida da saúde no Estúdio Vitalità em Cascavel:</p>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card reveal">
+              <div class="review-top">
+                <div class="reviewer-avatar">VC</div>
+                <div class="reviewer-meta">
+                  <strong>Vilma Campos</strong>
+                  <span class="review-date">Aluna há 3 anos</span>
+                </div>
+                <span class="google-badge-small">Google ★★★★★</span>
+              </div>
+              <p class="review-text">
+                "Faço há uns 3 anos, professores atenciosos e excelentes."
+              </p>
+            </article>
+
+            <article class="review-card reveal">
+              <div class="review-top">
+                <div class="reviewer-avatar">DG</div>
+                <div class="reviewer-meta">
+                  <strong>D. G.</strong>
+                  <span class="review-date">Aluno no Google</span>
+                </div>
+                <span class="google-badge-small">Google ★★★★★</span>
+              </div>
+              <p class="review-text">
+                "Ambiente arejado e aconchegante."
+              </p>
+            </article>
+
+            <article class="review-card reveal">
+              <div class="review-top">
+                <div class="reviewer-avatar">JM</div>
+                <div class="reviewer-meta">
+                  <strong>Jaquelyne Mocellin</strong>
+                  <span class="review-date">Aluna no Google</span>
+                </div>
+                <span class="google-badge-small">Google ★★★★★</span>
+              </div>
+              <p class="review-text">
+                "Aulas bem preparadas, sempre atendendo as nossas necessidades 👏"
+              </p>
+            </article>
+          </div>
+
+          <div class="reviews-link-wrap reveal">
+            <a
+              href="https://maps.google.com/?q=Vitalit%C3%A0+Sa%C3%BAde+e+Bem+Estar+Rua+Pio+XII+944+Neva+Cascavel+PR"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-secondary"
+            >
+              Ver todas as avaliações no Google Maps →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location Section -->
+      <section class="section section-soft gsap-section" id="localizacao">
         <div class="container location-grid">
           <div class="location-copy reveal">
-            <p class="eyebrow">Localização</p>
-            <h2>Estamos em Cascavel</h2>
-            <address>Rua Pio XII, 944, Neva — Cascavel PR</address>
-            <p>
-              Um espaço preparado para receber você com cuidado, tranquilidade
-              e acompanhamento próximo.
+            <p class="eyebrow">Localização em Cascavel</p>
+            <h2>Venha conhecer o nosso espaço</h2>
+            
+            <div class="address-box">
+              <div class="address-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </svg>
+              </div>
+              <div class="address-details">
+                <strong>Vitalità Saúde e Bem-Estar</strong>
+                <address>Rua Pio XII, 944 — Bairro Neva<br />Cascavel - PR, CEP 85802-170</address>
+              </div>
+            </div>
+
+            <div class="location-info-pills">
+              <div class="info-pill">
+                <span class="pill-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18">
+                    <path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Horário de Funcionamento</strong>
+                  <span>Segunda a Sexta: 07h às 20h</span>
+                </div>
+              </div>
+
+              <div class="info-pill">
+                <span class="pill-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18">
+                    <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Telefone & WhatsApp</strong>
+                  <span>(45) 98831-7680</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="location-note">
+              Espaço de fácil acesso no bairro Neva, climatizado e estruturado para receber você com conforto.
             </p>
+
             <div class="cta-row">
-              <a class="btn btn-secondary" href="#" data-map-link target="_blank" rel="noopener">
-                Abrir no Google Maps
+              <a
+                class="btn btn-primary"
+                href="https://maps.google.com/?q=Vitalit%C3%A0+Sa%C3%BAde+e+Bem+Estar+Rua+Pio+XII+944+Neva+Cascavel+PR"
+                target="_blank"
+                rel="noopener"
+              >
+                Abrir Rota no Google Maps
               </a>
-              <button class="btn btn-primary" type="button" data-whatsapp>
-                Chamar no WhatsApp
+              
+              <button class="btn btn-secondary" type="button" data-whatsapp data-msg="Olá! Gostaria de saber como chegar ao estúdio Vitalità na Rua Pio XII.">
+                Falar com a Receção
               </button>
             </div>
           </div>
 
           <div class="map-wrap reveal">
             <iframe
-              title="Mapa da Vitalità Saúde e Bem Estar em Cascavel"
+              title="Mapa de Localização do Estúdio Vitalità Pilates em Cascavel PR"
               src="https://www.google.com/maps?q=Rua%20Pio%20XII%2C%20944%2C%20Neva%2C%20Cascavel%20PR&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -305,41 +672,107 @@
         </div>
       </section>
 
-      <section class="final-cta">
+      <!-- Final High-Conversion Banner -->
+      <section class="final-cta gsap-section">
         <div class="container final-cta-inner reveal">
-          <p class="eyebrow">Aula experimental</p>
-          <h2>Comece sua evolução com uma aula experimental</h2>
+          <div class="final-cta-badge">AULA EXPERIMENTAL</div>
+          <h2>Dê o primeiro passo para um corpo mais forte e sem dores</h2>
           <p>
-            Fale com a Vitalità pelo WhatsApp e tire suas dúvidas sobre horários,
-            modalidades e atendimento.
+            Agende agora a sua aula experimental na Vitalità Pilates e experimente o acompanhamento personalizado de nossos professores.
           </p>
-          <button class="btn btn-light" type="button" data-whatsapp>
-            Falar com a Vitalità
-          </button>
+          
+          <div class="final-cta-buttons">
+            <button class="btn btn-light btn-large" type="button" data-whatsapp data-msg="Olá! Quero agendar uma aula experimental de Pilates na Vitalità.">
+              <span>Falar com a Vitalità no WhatsApp</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <div class="final-cta-guarantee">
+            <span>Resposta rápida em horário comercial</span>
+            <span>•</span>
+            <span>Sem fidelidade obrigatória</span>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- Site Footer -->
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div>
-          <a class="footer-brand" href="#inicio">Vitalità Saúde e Bem Estar</a>
-          <p>Pilates, saúde e bem-estar em Cascavel-PR.</p>
-          <p>Rua Pio XII, 944, Neva — Cascavel PR</p>
+        <div class="footer-brand-col">
+          <a class="footer-brand" href="#inicio">
+            <img src="images/logo-circle.png" alt="Vitalità" class="footer-logo-img" />
+            <span>Vitalità Saúde e Bem-Estar</span>
+          </a>
+          <p>Estúdio de Pilates em Cascavel-PR. Aulas personalizadas com até 8 alunos por horário em espaço climatizado.</p>
+          <p class="footer-address">Rua Pio XII, 944, Neva — Cascavel - PR</p>
         </div>
-        <nav class="footer-links" aria-label="Links do rodapé">
-          <button type="button" data-whatsapp>WhatsApp</button>
-          <a href="#" data-link="instagram" rel="noopener">Instagram</a>
-          <a href="#" data-link="facebook" rel="noopener">Facebook</a>
-          <a href="#" data-map-link target="_blank" rel="noopener">Localização</a>
+
+        <nav class="footer-links-col" aria-label="Links rápidos do rodapé">
+          <h4>Navegação</h4>
+          <a href="#inicio">Início</a>
+          <a href="#sobre">O Estúdio</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#objetivos">Seu Objetivo</a>
+          <a href="#modalidades">Modalidades</a>
+          <a href="#localizacao">Localização</a>
         </nav>
+
+        <div class="footer-contact-col">
+          <h4>Contato & Horários</h4>
+          <p><strong>WhatsApp:</strong> (45) 98831-7680</p>
+          <p><strong>Horário:</strong> Seg a Sex das 07h às 20h</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram Vitalità">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://maps.google.com/?q=Vitalit%C3%A0+Sa%C3%BAde+e+Bem+Estar+Rua+Pio+XII+944+Neva+Cascavel+PR" target="_blank" rel="noopener" aria-label="Google Maps Vitalità">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+              </svg>
+              <span>Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom container">
+        <p>© <span id="year">2026</span> Vitalità Saúde e Bem-Estar. Todos os direitos reservados. Cascavel - PR.</p>
       </div>
     </footer>
 
-    <button class="whatsapp-float" type="button" aria-label="Falar com a Vitalità pelo WhatsApp" data-whatsapp>
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M16 3.5A12.2 12.2 0 0 0 5.7 22.2L4 28l6-1.6A12.1 12.1 0 0 0 16 28.1 12.3 12.3 0 1 0 16 3.5Zm0 22.5a10 10 0 0 1-5.1-1.4l-.4-.2-3.6 1 1-3.5-.3-.4A10.1 10.1 0 1 1 16 26Zm5.7-7.5c-.3-.2-1.8-.9-2.1-1s-.5-.2-.8.2c-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1a8.1 8.1 0 0 1-2.4-1.5 9.1 9.1 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.8-1.9-1.1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z" />
-      </svg>
-    </button>
+    <!-- Floating WhatsApp Widget -->
+    <div class="whatsapp-float-container">
+      <div class="whatsapp-tooltip">
+        <span class="tooltip-status"></span>
+        <span>Agende sua aula no WhatsApp!</span>
+      </div>
+      <button class="whatsapp-float" type="button" aria-label="Falar com a Vitalità pelo WhatsApp" data-whatsapp data-msg="Olá! Vim pelo site da Vitalità e gostaria de agendar uma aula experimental.">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3.5A12.2 12.2 0 0 0 5.7 22.2L4 28l6-1.6A12.1 12.1 0 0 0 16 28.1 12.3 12.3 0 1 0 16 3.5Zm0 22.5a10 10 0 0 1-5.1-1.4l-.4-.2-3.6 1 1-3.5-.3-.4A10.1 10.1 0 1 1 16 26Zm5.7-7.5c-.3-.2-1.8-.9-2.1-1s-.5-.2-.8.2c-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1a8.1 8.1 0 0 1-2.4-1.5 9.1 9.1 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.8-1.9-1.1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Video Modal Dialog (Featuring Original Photo foto-1.png) -->
+    <dialog class="video-modal" id="videoModal">
+      <div class="video-modal-content">
+        <button class="video-close-btn" id="closeVideoBtn" aria-label="Fechar vídeo">&times;</button>
+        <div class="video-container">
+          <img src="images/foto-1.png" alt="Apresentação Vitalità" class="modal-preview-img" />
+          <div class="modal-video-caption">
+            <h3>Estúdio Vitalità Saúde & Bem-Estar</h3>
+            <p>Espaço climatizado, equipamentos modernos e atendimento personalizado na R. Pio XII, 944 - Neva, Cascavel - PR.</p>
+            <button class="btn btn-primary" type="button" data-whatsapp data-msg="Olá! Assisti o vídeo no site e gostaria de agendar uma visita ao estúdio.">
+              Agendar Visita no WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
